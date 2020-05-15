@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.10.0)
+project(tree)
+add_link_options(-lmcheck)
+add_executable(ctest source.c test.cpp)
+add_executable(cmain source.c main.c)
+target_link_libraries(ctest PUBLIC Catch2::Catch2 default)
+catch_discover_tests(ctest TEST_PREFIX tree::)
